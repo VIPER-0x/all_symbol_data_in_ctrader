@@ -1,0 +1,1 @@
+# all_symbol_data_in_ctrader
