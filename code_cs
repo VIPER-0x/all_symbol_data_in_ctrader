@@ -1,0 +1,64 @@
+using cAlgo.API;              
+using cAlgo.API.Internals;
+using cAlgo.API.Indicators;
+using cAlgo.API.Requests;
+using System.Linq;
+
+namespace cAlgo.Robots
+{
+    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
+    public class PrintAllSymbolProperties : Robot
+    {
+        protected override void OnStart()
+        {
+            // Get the properties of the current chart symbol
+            Print("Symbol Name: {0}", Symbol.Name);
+            Print("Bid Price: {0}", Symbol.Bid);
+            Print("Ask Price: {0}", Symbol.Ask);
+            Print("Spread: {0}", Symbol.Spread);
+            Print("Pip Size: {0}", Symbol.PipSize);
+            Print("Digits: {0}", Symbol.Digits);
+            Print("Tick Size: {0}", Symbol.TickSize);
+            Print("Minimum Volume in Units: {0}", Symbol.VolumeInUnitsMin);
+            Print("Maximum Volume in Units: {0}", Symbol.VolumeInUnitsMax);
+            Print("Volume Step in Units: {0}", Symbol.VolumeInUnitsStep);
+            Print("Pip Value: {0}", Symbol.PipValue);
+            Print("Tick Value: {0}", Symbol.TickValue);
+            Print("Lot Size: {0}", Symbol.LotSize);
+            Print("Unrealized Net Profit: {0}", Symbol.UnrealizedNetProfit);
+            Print("Unrealized Gross Profit: {0}", Symbol.UnrealizedGrossProfit);
+            Print("Base Asset: {0}", Symbol.BaseAsset);
+            Print("Quote Asset: {0}", Symbol.QuoteAsset);
+            Print("PnL Conversion Fee Rate: {0}", Symbol.PnLConversionFeeRate);
+            Print("Commission: {0}", Symbol.Commission);
+            Print("Commission Type: {0}", Symbol.CommissionType);
+            Print("Minimum Commission: {0}", Symbol.MinCommission);
+            Print("Minimum Commission Asset: {0}", Symbol.MinCommissionAsset);
+            Print("Minimum Commission Type: {0}", Symbol.MinCommissionType);
+            Print("Administrative Charge 3 Days Rollover: {0}", Symbol.AdministrativeCharge3DaysRollover);
+            Print("Administrative Charge: {0}", Symbol.AdministrativeCharge);
+            Print("Grace Period: {0}", Symbol.GracePeriod);
+            Print("Swap Long: {0}", Symbol.SwapLong);
+            Print("Swap Short: {0}", Symbol.SwapShort);
+            Print("Swap 3 Days Rollover: {0}", Symbol.Swap3DaysRollover);
+            Print("Swap Calculation Type: {0}", Symbol.SwapCalculationType);
+            Print("Is Trading Enabled: {0}", Symbol.IsTradingEnabled);
+            Print("Trading Mode: {0}", Symbol.TradingMode);
+            Print("Minimum Distance Type: {0}", Symbol.MinDistanceType);
+            Print("Minimum Take Profit Distance: {0}", Symbol.MinTakeProfitDistance);
+            Print("Minimum Stop Loss Distance: {0}", Symbol.MinStopLossDistance);
+            Print("Dynamic Leverage: {0}", string.Join(", ", Symbol.DynamicLeverage.Select(l => l.Leverage)));
+            Print("Market Hours: {0}", Symbol.MarketHours);
+            Print("Point Size: {0}", Symbol.TickSize);
+            Print("Minimum Volume: {0}", Symbol.VolumeInUnitsMin);
+            Print("Maximum Volume: {0}", Symbol.VolumeInUnitsMax);
+            Print("Volume Step: {0}", Symbol.VolumeInUnitsStep);
+        }
+
+        protected override void OnTick()
+        {
+            // This method is called on each incoming tick
+            // You can use it to continuously print or update symbol properties if needed
+        }
+    }
+}
